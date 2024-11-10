@@ -3,95 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobil Uyumlu Davetli Listesi ve Menü</title>
-    <style>
-        /* Genel stil ayarları */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Başlık */
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        /* Konteyner */
-        .container {
-            display: flex;
-            flex-direction: row;
-            height: calc(100vh - 70px); /* Header yüksekliği çıkarılır */
-        }
-
-        /* Sol taraf: Davetli Listesi */
-        .sidebar {
-            width: 30%;
-            background-color: #f4f4f4;
-            padding: 1rem;
-            overflow-y: auto;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Sağ taraf: Menü */
-        .main-content {
-            width: 70%;
-            padding: 1rem;
-            overflow-y: auto;
-        }
-
-        /* Davetli Listesi Başlık */
-        .sidebar h2, .main-content h2 {
-            margin-top: 0;
-        }
-
-        /* Mobil uyumluluk - ekran küçükse alt alta diz */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-
-            .sidebar, .main-content {
-                width: 100%;
-            }
-        }
-    </style>
+    <title>Yusuf ve Tülay'ın Evinde Kahvaltı</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-
-<header>
-    <h1>Davetli Listesi ve Menü</h1>
-</header>
-
-<div class="container">
-    <!-- Davetli Listesi -->
-    <div class="sidebar">
-        <h2>Davetli Listesi</h2>
-        <ul>
-            <li>Misafir 1</li>
-            <li>Misafir 2</li>
-            <li>Misafir 3</li>
-            <li>Misafir 4</li>
-            <li>Misafir 5</li>
-            <!-- Daha fazla davetli ekleyebilirsiniz -->
-        </ul>
+<body class="bg-amber-50 relative min-h-screen pb-16">
+    <!-- Yeni eklenen başlık -->
+    <div class="bg-orange-600 text-white py-6 mb-8">
+        <div class="container mx-auto px-4">
+            <h1 class="text-center text-3xl md:text-4xl font-bold tracking-wider">
+                YUSUF VE TÜLAY'IN EVİNDE KAHVALTI
+            </h1>
+        </div>
     </div>
 
-    <!-- Menü -->
-    <div class="main-content">
-        <h2>Menü</h2>
-        <p>Yemek 1: Tavuk Şiş</p>
-        <p>Yemek 2: Etli Pilav</p>
-        <p>Yemek 3: Karışık Meze</p>
-        <p>Yemek 4: Tatlı Çeşitleri</p>
-        <!-- Menü öğelerini buraya ekleyebilirsiniz -->
-    </div>
-</div>
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid md:grid-cols-3 gap-6">
+            
+            <!-- Sol Kolon - Davetli Listesi -->
+            <div class="md:col-span-1">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-bold text-orange-600 mb-4">Davetli Listesi</h2>
+                    
+                    <!-- Fındıkçı Ailesi -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-orange-500 mb-2">Fındıkçı Ailesi</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
+                                <span class="font-medium">Mübin Fındıkçı</span>
+                                <span class="text-sm text-gray-600">Masa 1</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
+                                <span class="font-medium">Ayşe Fındıkçı</span>
+                                <span class="text-sm text-gray-600">Masa 1</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
+                                <span class="font-medium">Yunus Emre Fındıkçı</span>
+                                <span class="text-sm text-gray-600">Masa 1</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
+                                <span class="font-medium">Elif Yüsra Fındıkçı</span>
+                                <span class="text-sm text-gray-600">Masa 1</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
+                                <span class="font-medium">Ayşegül Fındıkçı</span>
+                                <span class="text-sm text-gray-600">Masa 1</span>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- Kandemir Ailesi -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-orange-500 mb-2">Kandemir Ailesi</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
+                                <span class="font-medium">Yusuf Kandemir</span>
+                                <span class="text-sm text-gray-600">Masa 1</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
+                                <span class="font-medium">Tülay Kandemir</span>
+                                <span class="text-sm text-gray-600">Masa 1</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
+                                <span class="font-medium">Mehmet Ali Kandemir</span>
+                                <span class="text-sm text-gray-600">Masa 1</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
+                                <span class="font-medium">Rabia Kandemir</span>
+                                <span class="text-sm text-gray-600">Masa 1</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
+                                <span class="font-medium">Ahmet Eymen Kandemir</span>
+                                <span class="text-sm text-gray-600">Masa 1</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
+                                <span class="font-medium">Zümra Betül Kandemir</span>
+                                <span class="text-sm text-gray-600">Masa 1</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
+                                <span class="font-medium">Zeynep Amine Kandemir</span>
+                                <span class="text-sm text-gray-600">Masa 1</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
+                                <span class="font-medium">Hamza Kandemir</span>
+                                <span class="text-sm text-gray-600">Masa 1</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
+                                <span class="font-medium">Hümeyra Kandemir</span>
+                                <span class="text-sm text-gray-600">Masa 1</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
+                                <span class="font-medium">Ravza Kandemir</span>
+                                <span class="text-sm text-gray-600">Masa 1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sağ Kolon - Menü -->
+            <div class="md:col-span-2">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h1 class="text-3xl font-bold text-orange-600 mb-6">Lezzet Menüsü</h1>
+                    
+                    <!-- Ana Yemekler -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-semibold text-orange-500 mb-4">Ana Yemekler</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-orange-100 p-4 rounded-lg">
+                                <h3 class="font-bold text-lg">Patates Yanında Et</h3>
+                                <p class="text-gray-600">Özel soslu patates eşliğinde marine edilmiş et</p>
+                            </div>
+                            <div class="bg-orange-100 p-4 rounded-lg">
+                                <h3 class="font-bold text-lg">Peynirli Muhlama</h3>
+                                <p class="text-gray-600">Özel peynir karışımı ile hazırlanan muhlama</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hamur İşleri -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-semibold text-orange-500 mb-4">Hamur İşleri</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-orange-100 p-4 rounded-lg">
+                                <h3 class="font-bold text-lg">Börek</h3>
+                                <p class="text-gray-600">El açması taze börek</p>
+                            </div>
+                            <div class="bg-orange-100 p-4 rounded-lg">
+                                <h3 class="font-bold text-lg">Tahinli Çörek</h3>
+                                <p class="text-gray-600">Geleneksel tarifle hazırlanan tahinli çörek</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kahvaltı -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-semibold text-orange-500 mb-4">Kahvaltı Çeşitleri</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-orange-100 p-4 rounded-lg">
+                                <h3 class="font-bold text-lg">Serpme Kahvaltı</h3>
+                                <p class="text-gray-600">Zengin çeşitlerle hazırlanan serpme kahvaltı</p>
+                            </div>
+                            <div class="bg-orange-100 p-4 rounded-lg">
+                                <h3 class="font-bold text-lg">Pastırmalı Yumurta</h3>
+                                <p class="text-gray-600">Kayseri pastırması ile hazırlanan özel yumurta</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Donate notu - sayfanın sağ alt köşesi -->
+    <div class="fixed bottom-4 right-4 bg-orange-100 p-3 rounded-lg shadow-lg max-w-xs text-right">
+        <p class="text-sm text-orange-800 italic">
+            <span class="font-semibold">Not:</span> Donate'ler Hamza ve Hümeyra Kandemir'e teslim edilebilir
+        </p>
+    </div>
 </body>
 </html>
-
