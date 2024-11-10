@@ -77,14 +77,17 @@
         <!-- Sol Kontrol Grubu -->
         <div class="flex flex-col gap-2">
             <button 
+                onmousedown="handleMobileControl('rotate')"
                 ontouchstart="handleMobileControl('rotate')"
-                class="w-16 h-16 bg-gray-800 text-white rounded-full shadow-lg flex items-center justify-center text-2xl border-2 border-orange-500 active:bg-gray-700"
+                class="w-20 h-20 bg-gray-800/80 text-white rounded-full shadow-lg flex items-center justify-center text-3xl border-4 border-orange-500 active:bg-gray-700 active:scale-95 transition-all"
             >
-                <i class="fas fa-redo"></i>
+                <i class="fas fa-rotate-right"></i>
             </button>
             <button 
+                onmousedown="handleMobileControl('left')"
                 ontouchstart="handleMobileControl('left')"
-                class="w-16 h-16 bg-gray-800 text-white rounded-full shadow-lg flex items-center justify-center text-2xl border-2 border-orange-500 active:bg-gray-700"
+                ontouchend="stopMobileControl()"
+                class="w-20 h-20 bg-gray-800/80 text-white rounded-full shadow-lg flex items-center justify-center text-3xl border-4 border-orange-500 active:bg-gray-700 active:scale-95 transition-all"
             >
                 <i class="fas fa-arrow-left"></i>
             </button>
@@ -93,14 +96,17 @@
         <!-- Orta Kontrol Grubu -->
         <div class="flex flex-col gap-2">
             <button 
+                onmousedown="handleMobileControl('hardDrop')"
                 ontouchstart="handleMobileControl('hardDrop')"
-                class="w-16 h-16 bg-gray-800 text-white rounded-full shadow-lg flex items-center justify-center text-2xl border-2 border-orange-500 active:bg-gray-700"
+                class="w-20 h-20 bg-gray-800/80 text-white rounded-full shadow-lg flex items-center justify-center text-3xl border-4 border-orange-500 active:bg-gray-700 active:scale-95 transition-all"
             >
                 <i class="fas fa-angle-double-down"></i>
             </button>
             <button 
+                onmousedown="handleMobileControl('down')"
                 ontouchstart="handleMobileControl('down')"
-                class="w-16 h-16 bg-gray-800 text-white rounded-full shadow-lg flex items-center justify-center text-2xl border-2 border-orange-500 active:bg-gray-700"
+                ontouchend="stopMobileControl()"
+                class="w-20 h-20 bg-gray-800/80 text-white rounded-full shadow-lg flex items-center justify-center text-3xl border-4 border-orange-500 active:bg-gray-700 active:scale-95 transition-all"
             >
                 <i class="fas fa-arrow-down"></i>
             </button>
@@ -109,14 +115,17 @@
         <!-- Sağ Kontrol Grubu -->
         <div class="flex flex-col gap-2">
             <button 
-                ontouchstart="handleMobileControl('hold')"
-                class="w-16 h-16 bg-gray-800 text-white rounded-full shadow-lg flex items-center justify-center text-2xl border-2 border-orange-500 active:bg-gray-700"
+                onmousedown="handleMobileControl('pause')"
+                ontouchstart="handleMobileControl('pause')"
+                class="w-20 h-20 bg-gray-800/80 text-white rounded-full shadow-lg flex items-center justify-center text-3xl border-4 border-orange-500 active:bg-gray-700 active:scale-95 transition-all"
             >
-                <i class="fas fa-box"></i>
+                <i class="fas fa-pause"></i>
             </button>
             <button 
+                onmousedown="handleMobileControl('right')"
                 ontouchstart="handleMobileControl('right')"
-                class="w-16 h-16 bg-gray-800 text-white rounded-full shadow-lg flex items-center justify-center text-2xl border-2 border-orange-500 active:bg-gray-700"
+                ontouchend="stopMobileControl()"
+                class="w-20 h-20 bg-gray-800/80 text-white rounded-full shadow-lg flex items-center justify-center text-3xl border-4 border-orange-500 active:bg-gray-700 active:scale-95 transition-all"
             >
                 <i class="fas fa-arrow-right"></i>
             </button>
