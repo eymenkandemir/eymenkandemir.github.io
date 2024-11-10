@@ -192,7 +192,7 @@
                                     <i class="fas fa-cheese text-3xl text-orange-600 mr-3 mt-1"></i>
                                     <div>
                                         <h3 class="font-bold text-lg text-orange-800">Peynirli Muhlama</h3>
-                                        <p class="text-gray-700">Özel peynir karışımı ile hazırlanan muhlama</p>
+                                        <p class="text-gray-700">Özel peynir karımı ile hazırlanan muhlama</p>
                                     </div>
                                 </div>
                             </div>
@@ -220,6 +220,15 @@
                                     <div>
                                         <h3 class="font-bold text-lg text-orange-800">Tahinli Çörek</h3>
                                         <p class="text-gray-700">Geleneksel tarifle hazırlanan tahinli çörek</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="food-card bg-gradient-to-br from-orange-100 to-yellow-100 p-4 rounded-xl shadow-md hover:shadow-xl border-2 border-orange-200">
+                                <div class="flex items-start">
+                                    <i class="fas fa-cloud-meatball text-3xl text-orange-600 mr-3 mt-1"></i>
+                                    <div>
+                                        <h3 class="font-bold text-lg text-orange-800">Hala Poğaçası</h3>
+                                        <p class="text-gray-700">Özel tarif ile hazırlanan ev yapımı poğaça</p>
                                     </div>
                                 </div>
                             </div>
@@ -264,5 +273,69 @@
             <span class="font-semibold">Not:</span> Donate'ler Hamza ve Hümeyra Kandemir'e teslim edilebilir
         </p>
     </div>
+
+    <!-- Şifre kutusu - sol alt köşe -->
+    <div class="fixed bottom-4 left-4 bg-gradient-to-r from-orange-100 to-yellow-100 p-4 rounded-lg shadow-lg border-2 border-orange-200">
+        <form class="flex flex-col space-y-2" onsubmit="checkPassword(event)">
+            <label class="text-sm font-semibold text-orange-800">
+                <i class="fas fa-lock mr-1"></i> Şifre Girişi
+            </label>
+            <div class="flex space-x-2">
+                <input 
+                    type="text"
+                    id="passwordInput"
+                    placeholder="Şifrenizi giriniz" 
+                    class="px-3 py-2 rounded-md border border-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-400 text-sm uppercase"
+                    autocomplete="off"
+                >
+                <button 
+                    type="submit" 
+                    class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md transition-colors duration-200 flex items-center"
+                >
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- YKS Mesajı - başlangıçta gizli -->
+    <div id="yksMessage" class="fixed inset-0 flex items-center justify-center bg-black/50 hidden">
+        <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-12 py-8 rounded-2xl shadow-2xl transform scale-110 animate-bounce">
+            <div class="text-center">
+                <h2 class="text-4xl md:text-6xl font-bold tracking-wider">
+                    YKS'YE SON
+                </h2>
+                <div class="text-7xl md:text-9xl font-black my-4 text-yellow-300">
+                    222
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold tracking-wider">
+                    GÜN
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript kodu -->
+    <script>
+    function checkPassword(event) {
+        event.preventDefault();
+        
+        const password = document.getElementById('passwordInput').value;
+        const messageElement = document.getElementById('yksMessage');
+        
+        if (password.toUpperCase() === 'YKS') {
+            // Şifreyi temizle
+            document.getElementById('passwordInput').value = '';
+            
+            // Mesajı göster
+            messageElement.classList.remove('hidden');
+            
+            // 5 saniye sonra mesajı gizle
+            setTimeout(() => {
+                messageElement.classList.add('hidden');
+            }, 5000);
+        }
+    }
+    </script>
 </body>
 </html>
