@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zombi Kaçış Oyunu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .player {
+            width: 30px;
+            height: 30px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .zombie {
+            width: 30px;
+            height: 30px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+
+        #game-area {
+            cursor: none;
+            background: #1a1a1a;
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 h-screen overflow-hidden">
+    <!-- Skor ve Kontroller -->
+    <div class="fixed top-4 left-4 right-4 flex justify-between items-center z-50">
+        <div class="bg-gray-800 text-white p-4 rounded-lg shadow-lg">
+            <span class="font-bold">Skor: </span>
+            <span id="score" class="text-green-500">0</span>
+        </div>
+        <div class="bg-gray-800 text-white p-4 rounded-lg shadow-lg">
+            <button onclick="startGame()" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg mr-2">
+                Başlat
+            </button>
+            <button onclick="resetGame()" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg">
+                Yeniden Başlat
+            </button>
+        </div>
+    </div>
+
+    <!-- Oyun Alanı -->
+    <div id="game-area" class="w-full h-full">
+        <div id="player" class="player"></div>
+    </div>
+
+    <script>
+        const gameArea = document.getElementById('game-area');
+        const player = document.getElementById('player');
+        const scoreElement = document.getElementById('score');
+        let zombies = [];
+        let score = 0;
+        let gameLoop;
+        let isGameRunning = false;
+
+        // Mouse hareketini takip et
+        gameArea.addEventListener('mousemove', (e) => {
+            if (isGameRunning) {
+                const rect = gameArea.getBoundingClientRect();
+                player.style.left = (e.clientX - rect.left) + 'px';
+                player.style.top = (e.clientY - rect.top) + 'px';
+            }
+        });
+
+        function createZombie() {
+            const zombie = document.createElement('div');
+            zombie.className = 'zombie';
+            
+            // Zombiyi rastgele bir kenardan başlat
+            const side = Math.floor(Math.random() * 4);
+            let x, y;
+            
+            switch(side) {
+                case 0: // Üst
+                    x = Math.random() * window.innerWidth;
+                    y = -30;
+                    break;
+                case 1: // Sağ
+                    x = window.innerWidth + 30;
+                    y = Math.random() * window.innerHeight;
+                    break;
+                case 2: // Alt
+                    x = Math.random() * window.innerWidth;
+                    y = window.innerHeight + 30;
+                    break;
+                case 3: // Sol
+                    x = -30;
+                    y = Math.random() * window.innerHeight;
+                    break;
+            }
+            
+            zombie.style.left = x + 'px';
+            zombie.style.top = y + 'px';
+            gameArea.appendChild(zombie);
+            zombies.push(zombie);
+        }
+
+        function moveZombies() {
+            const playerRect = player.getBoundingClientRect();
+            const playerX = playerRect.left + playerRect.width / 2;
+            const playerY = playerRect.top + playerRect.height / 2;
+
+            zombies.forEach(zombie => {
+                const zombieRect = zombie.getBoundingClientRect();
+                const zombieX = zombieRect.left + zombieRect.width / 2;
+                const zombieY = zombieRect.top + zombieRect.height / 2;
+
+                // Zombinin oyuncuya doğru hareket etmesi
+                const angle = Math.atan2(playerY - zombieY, playerX - zombieX);
+                const speed = 2;
+                const newX = zombieX + Math.cos(angle) * speed;
+                const newY = zombieY + Math.sin(angle) * speed;
+
+                zombie.style.left = newX + 'px';
+                zombie.style.top = newY + 'px';
+
+                // Çarpışma kontrolü
+                if (checkCollision(playerRect, zombieRect)) {
+                    endGame();
+                }
+            });
+        }
+
+        function checkCollision(rect1, rect2) {
+            return !(rect1.right < rect2.left || 
+                    rect1.left > rect2.right || 
+                    rect1.bottom < rect2.top || 
+                    rect1.top > rect2.bottom);
+        }
+
+        function updateScore() {
+            score++;
+            scoreElement.textContent = score;
+        }
+
+        function startGame() {
+            if (!isGameRunning) {
+                isGameRunning = true;
+                score = 0;
+                scoreElement.textContent = score;
+
+                // Zombileri oluştur ve hareket ettir
+                gameLoop = setInterval(() => {
+                    if (zombies.length < 10) {
+                        createZombie();
+                    }
+                    moveZombies();
+                    updateScore();
+                }, 50);
+
+                // Her 5 saniyede bir yeni zombi ekle
+                setInterval(() => {
+                    if (isGameRunning && zombies.length < 20) {
+                        createZombie();
+                    }
+                }, 5000);
+            }
+        }
+
+        function endGame() {
+            isGameRunning = false;
+            clearInterval(gameLoop);
+            alert(`Oyun Bitti! Skorunuz: ${score}`);
+        }
+
+        function resetGame() {
+            isGameRunning = false;
+            clearInterval(gameLoop);
+            zombies.forEach(zombie => zombie.remove());
+            zombies = [];
+            score = 0;
+            scoreElement.textContent = score;
+            player.style.left = '50%';
+            player.style.top = '50%';
+        }
+
+        // Oyun alanı dışına çıkıldığında oyunu durdur
+        document.addEventListener('mouseleave', () => {
+            if (isGameRunning) {
+                endGame();
+            }
+        });
+    </script>
+</body>
+</html> 
