@@ -5,48 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yusuf ve Tülay'ın Evinde Kahvaltı</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .food-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+        }
+    </style>
 </head>
-<body class="bg-amber-50 relative min-h-screen pb-16">
-    <!-- Yeni eklenen başlık -->
-    <div class="bg-orange-600 text-white py-6 mb-8">
+<body class="bg-gradient-to-r from-yellow-50 to-orange-50">
+    <!-- Sabit başlık -->
+    <div class="fixed top-0 left-0 right-0 gradient-bg text-white py-6 shadow-lg z-50">
         <div class="container mx-auto px-4">
-            <h1 class="text-center text-3xl md:text-4xl font-bold tracking-wider">
+            <h1 class="text-center text-3xl md:text-4xl font-bold tracking-wider animate-pulse">
+                <i class="fas fa-utensils mr-2"></i>
                 YUSUF VE TÜLAY'IN EVİNDE KAHVALTI
+                <i class="fas fa-coffee ml-2"></i>
             </h1>
         </div>
     </div>
+
+    <!-- Başlığın altındaki içeriğin üst boşluğu -->
+    <div class="pt-32"></div>
 
     <div class="container mx-auto px-4 py-8">
         <div class="grid md:grid-cols-3 gap-6">
             
             <!-- Sol Kolon - Davetli Listesi -->
             <div class="md:col-span-1">
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h2 class="text-2xl font-bold text-orange-600 mb-4">Davetli Listesi</h2>
+                <div class="bg-white rounded-2xl shadow-xl p-6 border-2 border-orange-200">
+                    <h2 class="text-2xl font-bold text-orange-600 mb-4 flex items-center">
+                        <i class="fas fa-users mr-2"></i> Davetli Listesi
+                    </h2>
                     
                     <!-- Fındıkçı Ailesi -->
                     <div class="mb-6">
                         <h3 class="text-lg font-semibold text-orange-500 mb-2">Fındıkçı Ailesi</h3>
                         <div class="space-y-2">
-                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
-                                <span class="font-medium">Mübin Fındıkçı</span>
-                                <span class="text-sm text-gray-600">Masa 1</span>
+                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
+                                <div class="flex items-center">
+                                    <i class="fas fa-male text-blue-600 mr-2"></i>
+                                    <span class="font-medium">Mübin Fındıkçı</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
                             </div>
-                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
-                                <span class="font-medium">Ayşe Fındıkçı</span>
-                                <span class="text-sm text-gray-600">Masa 1</span>
+                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
+                                <div class="flex items-center">
+                                    <i class="fas fa-female text-pink-600 mr-2"></i>
+                                    <span class="font-medium">Ayşe Fındıkçı</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
                             </div>
-                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
-                                <span class="font-medium">Yunus Emre Fındıkçı</span>
-                                <span class="text-sm text-gray-600">Masa 1</span>
+                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
+                                <div class="flex items-center">
+                                    <i class="fas fa-male text-blue-600 mr-2"></i>
+                                    <span class="font-medium">Yunus Emre Fındıkçı</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
                             </div>
-                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
-                                <span class="font-medium">Elif Yüsra Fındıkçı</span>
-                                <span class="text-sm text-gray-600">Masa 1</span>
+                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
+                                <div class="flex items-center">
+                                    <i class="fas fa-female text-pink-600 mr-2"></i>
+                                    <span class="font-medium">Elif Yüsra Fındıkçı</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
                             </div>
-                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
-                                <span class="font-medium">Ayşegül Fındıkçı</span>
-                                <span class="text-sm text-gray-600">Masa 1</span>
+                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
+                                <div class="flex items-center">
+                                    <i class="fas fa-female text-pink-600 mr-2"></i>
+                                    <span class="font-medium">Ayşegül Fındıkçı</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
                             </div>
                         </div>
                     </div>
@@ -55,45 +87,78 @@
                     <div>
                         <h3 class="text-lg font-semibold text-orange-500 mb-2">Kandemir Ailesi</h3>
                         <div class="space-y-2">
-                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
-                                <span class="font-medium">Yusuf Kandemir</span>
-                                <span class="text-sm text-gray-600">Masa 1</span>
+                            <!-- Yetişkinler -->
+                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
+                                <div class="flex items-center">
+                                    <i class="fas fa-male text-blue-600 mr-2"></i>
+                                    <span class="font-medium">Yusuf Kandemir</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
                             </div>
-                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
-                                <span class="font-medium">Tülay Kandemir</span>
-                                <span class="text-sm text-gray-600">Masa 1</span>
+                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
+                                <div class="flex items-center">
+                                    <i class="fas fa-female text-pink-600 mr-2"></i>
+                                    <span class="font-medium">Tülay Kandemir</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
                             </div>
-                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
-                                <span class="font-medium">Mehmet Ali Kandemir</span>
-                                <span class="text-sm text-gray-600">Masa 1</span>
+                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
+                                <div class="flex items-center">
+                                    <i class="fas fa-male text-blue-600 mr-2"></i>
+                                    <span class="font-medium">Mehmet Ali Kandemir</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
                             </div>
-                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
-                                <span class="font-medium">Rabia Kandemir</span>
-                                <span class="text-sm text-gray-600">Masa 1</span>
+                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
+                                <div class="flex items-center">
+                                    <i class="fas fa-female text-pink-600 mr-2"></i>
+                                    <span class="font-medium">Rabia Kandemir</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
                             </div>
-                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
-                                <span class="font-medium">Ahmet Eymen Kandemir</span>
-                                <span class="text-sm text-gray-600">Masa 1</span>
+                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
+                                <div class="flex items-center">
+                                    <i class="fas fa-male text-blue-600 mr-2"></i>
+                                    <span class="font-medium">Ahmet Eymen Kandemir</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
                             </div>
-                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
-                                <span class="font-medium">Zümra Betül Kandemir</span>
-                                <span class="text-sm text-gray-600">Masa 1</span>
+
+                            <!-- Çocuklar -->
+                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-200 to-yellow-200 p-3 rounded-md">
+                                <div class="flex items-center">
+                                    <i class="fas fa-child text-purple-600 mr-2"></i>
+                                    <span class="font-medium">Zümra Betül Kandemir</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Çocukların Masası</span>
                             </div>
-                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
-                                <span class="font-medium">Zeynep Amine Kandemir</span>
-                                <span class="text-sm text-gray-600">Masa 1</span>
+                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-200 to-yellow-200 p-3 rounded-md">
+                                <div class="flex items-center">
+                                    <i class="fas fa-child text-purple-600 mr-2"></i>
+                                    <span class="font-medium">Zeynep Amine Kandemir</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Çocukların Masası</span>
                             </div>
-                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
-                                <span class="font-medium">Hamza Kandemir</span>
-                                <span class="text-sm text-gray-600">Masa 1</span>
+                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-200 to-yellow-200 p-3 rounded-md">
+                                <div class="flex items-center">
+                                    <i class="fas fa-child text-purple-600 mr-2"></i>
+                                    <span class="font-medium">Hamza Kandemir</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Çocukların Masası</span>
                             </div>
-                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
-                                <span class="font-medium">Hümeyra Kandemir</span>
-                                <span class="text-sm text-gray-600">Masa 1</span>
+                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-200 to-yellow-200 p-3 rounded-md">
+                                <div class="flex items-center">
+                                    <i class="fas fa-child text-purple-600 mr-2"></i>
+                                    <span class="font-medium">Hümeyra Kandemir</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Çocukların Masası</span>
                             </div>
-                            <div class="flex items-center justify-between bg-orange-100 p-3 rounded-md">
-                                <span class="font-medium">Ravza Kandemir</span>
-                                <span class="text-sm text-gray-600">Masa 1</span>
+                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-200 to-yellow-200 p-3 rounded-md">
+                                <div class="flex items-center">
+                                    <i class="fas fa-child text-purple-600 mr-2"></i>
+                                    <span class="font-medium">Ravza Kandemir</span>
+                                </div>
+                                <span class="text-sm text-gray-600">Çocukların Masası</span>
                             </div>
                         </div>
                     </div>
@@ -102,50 +167,88 @@
 
             <!-- Sağ Kolon - Menü -->
             <div class="md:col-span-2">
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h1 class="text-3xl font-bold text-orange-600 mb-6">Lezzet Menüsü</h1>
+                <div class="bg-white rounded-2xl shadow-xl p-6 border-2 border-orange-200">
+                    <h1 class="text-3xl font-bold text-orange-600 mb-6 flex items-center justify-center">
+                        <i class="fas fa-book-open mr-2"></i> Lezzet Menüsü
+                    </h1>
                     
                     <!-- Ana Yemekler -->
                     <div class="mb-8">
-                        <h2 class="text-2xl font-semibold text-orange-500 mb-4">Ana Yemekler</h2>
+                        <h2 class="text-2xl font-semibold text-orange-500 mb-4 flex items-center">
+                            <i class="fas fa-star mr-2"></i> Ana Yemekler
+                        </h2>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="bg-orange-100 p-4 rounded-lg">
-                                <h3 class="font-bold text-lg">Patates Yanında Et</h3>
-                                <p class="text-gray-600">Özel soslu patates eşliğinde marine edilmiş et</p>
+                            <div class="food-card bg-gradient-to-br from-orange-100 to-yellow-100 p-4 rounded-xl shadow-md hover:shadow-xl border-2 border-orange-200">
+                                <div class="flex items-start">
+                                    <i class="fas fa-drumstick-bite text-3xl text-orange-600 mr-3 mt-1"></i>
+                                    <div>
+                                        <h3 class="font-bold text-lg text-orange-800">Patates Yanında Et</h3>
+                                        <p class="text-gray-700">Özel soslu patates eşliğinde marine edilmiş et</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="bg-orange-100 p-4 rounded-lg">
-                                <h3 class="font-bold text-lg">Peynirli Muhlama</h3>
-                                <p class="text-gray-600">Özel peynir karışımı ile hazırlanan muhlama</p>
+                            <div class="food-card bg-gradient-to-br from-orange-100 to-yellow-100 p-4 rounded-xl shadow-md hover:shadow-xl border-2 border-orange-200">
+                                <div class="flex items-start">
+                                    <i class="fas fa-cheese text-3xl text-orange-600 mr-3 mt-1"></i>
+                                    <div>
+                                        <h3 class="font-bold text-lg text-orange-800">Peynirli Muhlama</h3>
+                                        <p class="text-gray-700">Özel peynir karışımı ile hazırlanan muhlama</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Hamur İşleri -->
                     <div class="mb-8">
-                        <h2 class="text-2xl font-semibold text-orange-500 mb-4">Hamur İşleri</h2>
+                        <h2 class="text-2xl font-semibold text-orange-500 mb-4 flex items-center">
+                            <i class="fas fa-bread-slice mr-2"></i> Hamur İşleri
+                        </h2>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="bg-orange-100 p-4 rounded-lg">
-                                <h3 class="font-bold text-lg">Börek</h3>
-                                <p class="text-gray-600">El açması taze börek</p>
+                            <div class="food-card bg-gradient-to-br from-orange-100 to-yellow-100 p-4 rounded-xl shadow-md hover:shadow-xl border-2 border-orange-200">
+                                <div class="flex items-start">
+                                    <i class="fas fa-bread-slice text-3xl text-orange-600 mr-3 mt-1"></i>
+                                    <div>
+                                        <h3 class="font-bold text-lg text-orange-800">Börek</h3>
+                                        <p class="text-gray-700">El açması taze börek</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="bg-orange-100 p-4 rounded-lg">
-                                <h3 class="font-bold text-lg">Tahinli Çörek</h3>
-                                <p class="text-gray-600">Geleneksel tarifle hazırlanan tahinli çörek</p>
+                            <div class="food-card bg-gradient-to-br from-orange-100 to-yellow-100 p-4 rounded-xl shadow-md hover:shadow-xl border-2 border-orange-200">
+                                <div class="flex items-start">
+                                    <i class="fas fa-cookie text-3xl text-orange-600 mr-3 mt-1"></i>
+                                    <div>
+                                        <h3 class="font-bold text-lg text-orange-800">Tahinli Çörek</h3>
+                                        <p class="text-gray-700">Geleneksel tarifle hazırlanan tahinli çörek</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Kahvaltı -->
                     <div class="mb-8">
-                        <h2 class="text-2xl font-semibold text-orange-500 mb-4">Kahvaltı Çeşitleri</h2>
+                        <h2 class="text-2xl font-semibold text-orange-500 mb-4 flex items-center">
+                            <i class="fas fa-mug-hot mr-2"></i> Kahvaltı Çeşitleri
+                        </h2>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="bg-orange-100 p-4 rounded-lg">
-                                <h3 class="font-bold text-lg">Serpme Kahvaltı</h3>
-                                <p class="text-gray-600">Zengin çeşitlerle hazırlanan serpme kahvaltı</p>
+                            <div class="food-card bg-gradient-to-br from-orange-100 to-yellow-100 p-4 rounded-xl shadow-md hover:shadow-xl border-2 border-orange-200">
+                                <div class="flex items-start">
+                                    <i class="fas fa-bacon text-3xl text-orange-600 mr-3 mt-1"></i>
+                                    <div>
+                                        <h3 class="font-bold text-lg text-orange-800">Serpme Kahvaltı</h3>
+                                        <p class="text-gray-700">Zengin çeşitlerle hazırlanan serpme kahvaltı</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="bg-orange-100 p-4 rounded-lg">
-                                <h3 class="font-bold text-lg">Pastırmalı Yumurta</h3>
-                                <p class="text-gray-600">Kayseri pastırması ile hazırlanan özel yumurta</p>
+                            <div class="food-card bg-gradient-to-br from-orange-100 to-yellow-100 p-4 rounded-xl shadow-md hover:shadow-xl border-2 border-orange-200">
+                                <div class="flex items-start">
+                                    <i class="fas fa-egg text-3xl text-orange-600 mr-3 mt-1"></i>
+                                    <div>
+                                        <h3 class="font-bold text-lg text-orange-800">Pastırmalı Yumurta</h3>
+                                        <p class="text-gray-700">Kayseri pastırması ile hazırlanan özel yumurta</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -154,9 +257,10 @@
         </div>
     </div>
 
-    <!-- Donate notu - sayfanın sağ alt köşesi -->
-    <div class="fixed bottom-4 right-4 bg-orange-100 p-3 rounded-lg shadow-lg max-w-xs text-right">
+    <!-- Donate notu -->
+    <div class="fixed bottom-4 right-4 bg-gradient-to-r from-orange-100 to-yellow-100 p-4 rounded-lg shadow-lg max-w-xs text-right border-2 border-orange-200">
         <p class="text-sm text-orange-800 italic">
+            <i class="fas fa-gift mr-1"></i>
             <span class="font-semibold">Not:</span> Donate'ler Hamza ve Hümeyra Kandemir'e teslim edilebilir
         </p>
     </div>
