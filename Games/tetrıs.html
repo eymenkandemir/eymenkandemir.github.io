@@ -1,1 +1,327 @@
-tetrıs
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Oyunu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .tetris-cell {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            transition: background-color 0.1s;
+        }
+        .piece-I { background-color: #00f0f0; }
+        .piece-O { background-color: #f0f000; }
+        .piece-T { background-color: #a000f0; }
+        .piece-S { background-color: #00f000; }
+        .piece-Z { background-color: #f00000; }
+        .piece-J { background-color: #0000f0; }
+        .piece-L { background-color: #f0a000; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-2xl mx-auto text-center">
+            <h1 class="text-4xl font-bold mb-8 text-orange-500">Tetris</h1>
+            
+            <div class="flex flex-col md:flex-row justify-center items-start gap-8">
+                <!-- Oyun Alanı -->
+                <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
+                    <div id="game-board" class="grid grid-cols-10 gap-0 border-2 border-gray-600"></div>
+                </div>
+
+                <!-- Kontroller -->
+                <div class="space-y-6">
+                    <!-- Skor -->
+                    <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
+                        <h2 class="text-xl font-semibold mb-2 text-orange-400">Skor</h2>
+                        <p id="score" class="text-3xl font-bold text-orange-500">0</p>
+                    </div>
+
+                    <!-- Butonlar -->
+                    <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
+                        <h2 class="text-xl font-semibold mb-4 text-orange-400">Kontroller</h2>
+                        <div class="space-y-2">
+                            <button onclick="startGame()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition">
+                                Başlat
+                            </button>
+                            <button onclick="pauseGame()" class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded transition">
+                                Duraklat
+                            </button>
+                            <button onclick="resetGame()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition">
+                                Sıfırla
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tuş Kontrolleri -->
+                    <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
+                        <h2 class="text-xl font-semibold mb-2 text-orange-400">Tuş Kontrolleri</h2>
+                        <ul class="text-left space-y-1 text-gray-300">
+                            <li>← : Sola Git</li>
+                            <li>→ : Sağa Git</li>
+                            <li>↓ : Hızlı Düşür</li>
+                            <li>↑ : Döndür</li>
+                            <li>Space : Anında Düşür</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+const BOARD_WIDTH = 10;
+const BOARD_HEIGHT = 20;
+let board = [];
+let currentPiece = null;
+let score = 0;
+let gameInterval = null;
+let isPaused = false;
+let isGameOver = false;
+
+const PIECES = {
+    I: {
+        shape: [[1, 1, 1, 1]],
+        color: 'I'
+    },
+    O: {
+        shape: [[1, 1], [1, 1]],
+        color: 'O'
+    },
+    T: {
+        shape: [[0, 1, 0], [1, 1, 1]],
+        color: 'T'
+    },
+    S: {
+        shape: [[0, 1, 1], [1, 1, 0]],
+        color: 'S'
+    },
+    Z: {
+        shape: [[1, 1, 0], [0, 1, 1]],
+        color: 'Z'
+    },
+    J: {
+        shape: [[1, 0, 0], [1, 1, 1]],
+        color: 'J'
+    },
+    L: {
+        shape: [[0, 0, 1], [1, 1, 1]],
+        color: 'L'
+    }
+};
+
+// Oyun tahtasını başlat
+function initBoard() {
+    const gameBoard = document.getElementById('game-board');
+    gameBoard.innerHTML = '';
+    board = [];
+
+    for (let y = 0; y < BOARD_HEIGHT; y++) {
+        const row = [];
+        for (let x = 0; x < BOARD_WIDTH; x++) {
+            const cell = document.createElement('div');
+            cell.className = 'tetris-cell';
+            gameBoard.appendChild(cell);
+            row.push(null);
+        }
+        board.push(row);
+    }
+}
+
+// Rastgele parça seç
+function getRandomPiece() {
+    const pieces = Object.keys(PIECES);
+    const pieceType = pieces[Math.floor(Math.random() * pieces.length)];
+    return {
+        type: pieceType,
+        shape: PIECES[pieceType].shape,
+        color: PIECES[pieceType].color,
+        x: Math.floor((BOARD_WIDTH - PIECES[pieceType].shape[0].length) / 2),
+        y: 0
+    };
+}
+
+// Tahtayı çiz
+function drawBoard() {
+    const cells = document.getElementsByClassName('tetris-cell');
+    let index = 0;
+
+    // Sabit parçaları çiz
+    for (let y = 0; y < BOARD_HEIGHT; y++) {
+        for (let x = 0; x < BOARD_WIDTH; x++) {
+            cells[index].className = 'tetris-cell';
+            if (board[y][x]) {
+                cells[index].classList.add(`piece-${board[y][x]}`);
+            }
+            index++;
+        }
+    }
+
+    // Aktif parçayı çiz
+    if (currentPiece) {
+        currentPiece.shape.forEach((row, y) => {
+            row.forEach((cell, x) => {
+                if (cell && currentPiece.y + y >= 0) {
+                    const index = (currentPiece.y + y) * BOARD_WIDTH + (currentPiece.x + x);
+                    if (index >= 0 && index < cells.length) {
+                        cells[index].classList.add(`piece-${currentPiece.type}`);
+                    }
+                }
+            });
+        });
+    }
+}
+
+// Hareket kontrolü
+function canMoveTo(piece, newX, newY) {
+    return piece.shape.every((row, y) => {
+        return row.every((cell, x) => {
+            if (!cell) return true;
+            const boardX = piece.x + x + newX;
+            const boardY = piece.y + y + newY;
+            return (
+                boardX >= 0 &&
+                boardX < BOARD_WIDTH &&
+                boardY < BOARD_HEIGHT &&
+                (boardY < 0 || !board[boardY] || !board[boardY][boardX])
+            );
+        });
+    });
+}
+
+// Parçayı tahtaya yerleştir
+function mergePiece() {
+    currentPiece.shape.forEach((row, y) => {
+        row.forEach((cell, x) => {
+            if (cell) {
+                const boardY = currentPiece.y + y;
+                if (boardY >= 0) {
+                    board[boardY][currentPiece.x + x] = currentPiece.type;
+                }
+            }
+        });
+    });
+}
+
+// Tamamlanan satırları temizle
+function clearLines() {
+    let linesCleared = 0;
+    
+    for (let y = BOARD_HEIGHT - 1; y >= 0; y--) {
+        if (board[y].every(cell => cell !== null)) {
+            board.splice(y, 1);
+            board.unshift(Array(BOARD_WIDTH).fill(null));
+            linesCleared++;
+            y++;
+        }
+    }
+
+    if (linesCleared > 0) {
+        score += linesCleared * 100;
+        document.getElementById('score').textContent = score;
+    }
+}
+
+// Aşağı hareket
+function moveDown() {
+    if (isGameOver || isPaused) return;
+
+    if (!currentPiece) {
+        currentPiece = getRandomPiece();
+        if (!canMoveTo(currentPiece, 0, 0)) {
+            isGameOver = true;
+            alert('Oyun Bitti! Skor: ' + score);
+            resetGame();
+            return;
+        }
+    }
+
+    if (canMoveTo(currentPiece, 0, 1)) {
+        currentPiece.y++;
+    } else {
+        mergePiece();
+        clearLines();
+        currentPiece = null;
+    }
+
+    drawBoard();
+}
+
+// Oyunu başlat
+function startGame() {
+    if (!gameInterval && !isGameOver) {
+        initBoard();
+        score = 0;
+        document.getElementById('score').textContent = score;
+        isGameOver = false;
+        isPaused = false;
+        gameInterval = setInterval(moveDown, 1000);
+    }
+}
+
+// Oyunu duraklat
+function pauseGame() {
+    isPaused = !isPaused;
+}
+
+// Oyunu sıfırla
+function resetGame() {
+    clearInterval(gameInterval);
+    gameInterval = null;
+    currentPiece = null;
+    isPaused = false;
+    isGameOver = false;
+    initBoard();
+    score = 0;
+    document.getElementById('score').textContent = score;
+}
+
+// Klavye kontrolleri
+document.addEventListener('keydown', (e) => {
+    if (!currentPiece || isPaused || isGameOver) return;
+
+    switch (e.key) {
+        case 'ArrowLeft':
+            if (canMoveTo(currentPiece, -1, 0)) {
+                currentPiece.x--;
+                drawBoard();
+            }
+            break;
+        case 'ArrowRight':
+            if (canMoveTo(currentPiece, 1, 0)) {
+                currentPiece.x++;
+                drawBoard();
+            }
+            break;
+        case 'ArrowDown':
+            moveDown();
+            break;
+        case 'ArrowUp':
+            const rotated = {
+                ...currentPiece,
+                shape: currentPiece.shape[0].map((_, i) =>
+                    currentPiece.shape.map(row => row[i]).reverse()
+                )
+            };
+            if (canMoveTo(rotated, 0, 0)) {
+                currentPiece.shape = rotated.shape;
+                drawBoard();
+            }
+            break;
+        case ' ':
+            while (canMoveTo(currentPiece, 0, 1)) {
+                currentPiece.y++;
+            }
+            moveDown();
+            break;
+    }
+});
+
+// Oyunu başlat
+initBoard();
+</script>
+</body>
+</html> 
