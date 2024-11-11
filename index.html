@@ -3,278 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yusuf ve Tülay'ın Evinde Kahvaltı</title>
+    <title>Oyun Koleksiyonu</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        .food-card:hover {
-            transform: translateY(-5px);
+        .game-card {
             transition: all 0.3s ease;
         }
-        .gradient-bg {
-            background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+        .game-card:hover {
+            transform: translateY(-5px);
         }
     </style>
 </head>
-<body class="bg-gradient-to-r from-yellow-50 to-orange-50">
-    <!-- Sabit başlık -->
-    <div class="fixed top-0 left-0 right-0 gradient-bg text-white py-6 shadow-lg z-50">
-        <div class="container mx-auto px-4">
-            <h1 class="text-center text-3xl md:text-4xl font-bold tracking-wider animate-pulse">
-                <i class="fas fa-utensils mr-2"></i>
-                YUSUF VE TÜLAY'IN EVİNDE KAHVALTI
-                <i class="fas fa-coffee ml-2"></i>
+<body class="bg-gray-900 min-h-screen">
+    <!-- Header -->
+    <header class="py-6 px-4">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold text-center text-orange-500">
+                <i class="fas fa-gamepad mr-2"></i>
+                Oyun Koleksiyonu
             </h1>
         </div>
-    </div>
+    </header>
 
-    <!-- Başlığın altındaki içeriğin üst boşluğu -->
-    <div class="pt-32"></div>
-
-    <div class="container mx-auto px-4 py-8">
-        <div class="grid md:grid-cols-3 gap-6">
+    <!-- Oyun Kartları -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             
-            <!-- Sol Kolon - Davetli Listesi -->
-            <div class="md:col-span-1">
-                <div class="bg-white rounded-2xl shadow-xl p-6 border-2 border-orange-200">
-                    <h2 class="text-2xl font-bold text-orange-600 mb-4 flex items-center">
-                        <i class="fas fa-users mr-2"></i> Davetli Listesi
-                    </h2>
-                    
-                    <!-- Fındıkçı Ailesi -->
-                    <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-orange-500 mb-2">Fındıkçı Ailesi</h3>
-                        <div class="space-y-2">
-                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
-                                <div class="flex items-center">
-                                    <i class="fas fa-male text-blue-600 mr-2"></i>
-                                    <span class="font-medium">Mübin Fındıkçı</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
-                            </div>
-                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
-                                <div class="flex items-center">
-                                    <i class="fas fa-female text-pink-600 mr-2"></i>
-                                    <span class="font-medium">Ayşe Fındıkçı</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
-                            </div>
-                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
-                                <div class="flex items-center">
-                                    <i class="fas fa-male text-blue-600 mr-2"></i>
-                                    <span class="font-medium">Yunus Emre Fındıkçı</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
-                            </div>
-                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
-                                <div class="flex items-center">
-                                    <i class="fas fa-female text-pink-600 mr-2"></i>
-                                    <span class="font-medium">Elif Yüsra Fındıkçı</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
-                            </div>
-                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
-                                <div class="flex items-center">
-                                    <i class="fas fa-female text-pink-600 mr-2"></i>
-                                    <span class="font-medium">Ayşegül Fındıkçı</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
-                            </div>
-                        </div>
+            <!-- Tetris -->
+            <a href="tetris.html" class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl border-2 border-orange-500/30 hover:border-orange-500">
+                <div class="p-6">
+                    <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-orange-500 rounded-lg">
+                        <i class="fas fa-cube text-3xl text-white"></i>
                     </div>
+                    <h2 class="text-2xl font-bold text-center text-white mb-2">Tetris</h2>
+                    <p class="text-gray-400 text-center">Klasik blok düzenleme oyunu</p>
+                </div>
+            </a>
 
-                    <!-- Kandemir Ailesi -->
-                    <div>
-                        <h3 class="text-lg font-semibold text-orange-500 mb-2">Kandemir Ailesi</h3>
-                        <div class="space-y-2">
-                            <!-- Yetişkinler -->
-                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
-                                <div class="flex items-center">
-                                    <i class="fas fa-male text-blue-600 mr-2"></i>
-                                    <span class="font-medium">Yusuf Kandemir</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
-                            </div>
-                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
-                                <div class="flex items-center">
-                                    <i class="fas fa-female text-pink-600 mr-2"></i>
-                                    <span class="font-medium">Tülay Kandemir</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
-                            </div>
-                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
-                                <div class="flex items-center">
-                                    <i class="fas fa-male text-blue-600 mr-2"></i>
-                                    <span class="font-medium">Mehmet Ali Kandemir</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
-                            </div>
-                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
-                                <div class="flex items-center">
-                                    <i class="fas fa-female text-pink-600 mr-2"></i>
-                                    <span class="font-medium">Rabia Kandemir</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
-                            </div>
-                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-100 to-yellow-100 p-3 rounded-md">
-                                <div class="flex items-center">
-                                    <i class="fas fa-male text-blue-600 mr-2"></i>
-                                    <span class="font-medium">Ahmet Eymen Kandemir</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Yetişkinlerin Masası</span>
-                            </div>
-
-                            <!-- Çocuklar -->
-                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-200 to-yellow-200 p-3 rounded-md">
-                                <div class="flex items-center">
-                                    <i class="fas fa-child text-purple-600 mr-2"></i>
-                                    <span class="font-medium">Zümra Betül Kandemir</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Çocukların Masası</span>
-                            </div>
-                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-200 to-yellow-200 p-3 rounded-md">
-                                <div class="flex items-center">
-                                    <i class="fas fa-child text-purple-600 mr-2"></i>
-                                    <span class="font-medium">Zeynep Amine Kandemir</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Çocukların Masası</span>
-                            </div>
-                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-200 to-yellow-200 p-3 rounded-md">
-                                <div class="flex items-center">
-                                    <i class="fas fa-child text-purple-600 mr-2"></i>
-                                    <span class="font-medium">Hamza Kandemir</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Çocukların Masası</span>
-                            </div>
-                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-200 to-yellow-200 p-3 rounded-md">
-                                <div class="flex items-center">
-                                    <i class="fas fa-child text-purple-600 mr-2"></i>
-                                    <span class="font-medium">Hümeyra Kandemir</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Çocukların Masası</span>
-                            </div>
-                            <div class="flex items-center justify-between bg-gradient-to-r from-orange-200 to-yellow-200 p-3 rounded-md">
-                                <div class="flex items-center">
-                                    <i class="fas fa-child text-purple-600 mr-2"></i>
-                                    <span class="font-medium">Ravza Kandemir</span>
-                                </div>
-                                <span class="text-sm text-gray-600">Çocukların Masası</span>
-                            </div>
-                        </div>
+            <!-- Zombi Kaçış -->
+            <a href="zombie.html" class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl border-2 border-green-500/30 hover:border-green-500">
+                <div class="p-6">
+                    <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-green-500 rounded-lg">
+                        <i class="fas fa-skull text-3xl text-white"></i>
                     </div>
+                    <h2 class="text-2xl font-bold text-center text-white mb-2">Zombi Kaçış</h2>
+                    <p class="text-gray-400 text-center">Zombilerden kaç ve hayatta kal</p>
+                </div>
+            </a>
+
+            <!-- Yılan Oyunu -->
+            <a href="snake.html" class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl border-2 border-blue-500/30 hover:border-blue-500">
+                <div class="p-6">
+                    <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-blue-500 rounded-lg">
+                        <i class="fas fa-snake text-3xl text-white"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-center text-white mb-2">Yılan</h2>
+                    <p class="text-gray-400 text-center">Klasik yılan oyunu</p>
+                </div>
+            </a>
+
+            <!-- Uzay Savaşı -->
+            <a href="space.html" class="game-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl border-2 border-purple-500/30 hover:border-purple-500">
+                <div class="p-6">
+                    <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-purple-500 rounded-lg">
+                        <i class="fas fa-rocket text-3xl text-white"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-center text-white mb-2">Uzay Savaşı</h2>
+                    <p class="text-gray-400 text-center">Uzay gemisiyle düşmanları yok et</p>
+                </div>
+            </a>
+
+            <!-- Yeni Oyun Ekle -->
+            <div class="game-card bg-gray-800/50 rounded-xl overflow-hidden shadow-lg border-2 border-dashed border-gray-600 hover:border-gray-400">
+                <div class="p-6">
+                    <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-gray-700 rounded-lg">
+                        <i class="fas fa-plus text-3xl text-gray-400"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-center text-gray-400 mb-2">Yeni Oyun</h2>
+                    <p class="text-gray-500 text-center">Yakında eklenecek</p>
                 </div>
             </div>
 
-            <!-- Sağ Kolon - Menü -->
-            <div class="md:col-span-2">
-                <div class="bg-white rounded-2xl shadow-xl p-6 border-2 border-orange-200">
-                    <h1 class="text-3xl font-bold text-orange-600 mb-6 flex items-center justify-center">
-                        <i class="fas fa-book-open mr-2"></i> Lezzet Menüsü
-                    </h1>
-                    
-                    <!-- Ana Yemekler -->
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold text-orange-500 mb-4 flex items-center">
-                            <i class="fas fa-star mr-2"></i> Ana Yemekler
-                        </h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="food-card bg-gradient-to-br from-orange-100 to-yellow-100 p-4 rounded-xl shadow-md hover:shadow-xl border-2 border-orange-200">
-                                <div class="flex items-start">
-                                    <i class="fas fa-drumstick-bite text-3xl text-orange-600 mr-3 mt-1"></i>
-                                    <div>
-                                        <h3 class="font-bold text-lg text-orange-800">Patates Yanında Et</h3>
-                                        <p class="text-gray-700">Özel soslu patates eşliğinde marine edilmiş et</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="food-card bg-gradient-to-br from-orange-100 to-yellow-100 p-4 rounded-xl shadow-md hover:shadow-xl border-2 border-orange-200">
-                                <div class="flex items-start">
-                                    <i class="fas fa-cheese text-3xl text-orange-600 mr-3 mt-1"></i>
-                                    <div>
-                                        <h3 class="font-bold text-lg text-orange-800">Peynirli Muhlama</h3>
-                                        <p class="text-gray-700">Özel peynir karımı ile hazırlanan muhlama</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Hamur İşleri -->
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold text-orange-500 mb-4 flex items-center">
-                            <i class="fas fa-bread-slice mr-2"></i> Hamur İşleri
-                        </h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="food-card bg-gradient-to-br from-orange-100 to-yellow-100 p-4 rounded-xl shadow-md hover:shadow-xl border-2 border-orange-200">
-                                <div class="flex items-start">
-                                    <i class="fas fa-bread-slice text-3xl text-orange-600 mr-3 mt-1"></i>
-                                    <div>
-                                        <h3 class="font-bold text-lg text-orange-800">Börek</h3>
-                                        <p class="text-gray-700">El açması taze börek</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="food-card bg-gradient-to-br from-orange-100 to-yellow-100 p-4 rounded-xl shadow-md hover:shadow-xl border-2 border-orange-200">
-                                <div class="flex items-start">
-                                    <i class="fas fa-cookie text-3xl text-orange-600 mr-3 mt-1"></i>
-                                    <div>
-                                        <h3 class="font-bold text-lg text-orange-800">Tahinli Çörek</h3>
-                                        <p class="text-gray-700">Geleneksel tarifle hazırlanan tahinli çörek</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="food-card bg-gradient-to-br from-orange-100 to-yellow-100 p-4 rounded-xl shadow-md hover:shadow-xl border-2 border-orange-200">
-                                <div class="flex items-start">
-                                    <i class="fas fa-cloud-meatball text-3xl text-orange-600 mr-3 mt-1"></i>
-                                    <div>
-                                        <h3 class="font-bold text-lg text-orange-800">Hala Poğaçası</h3>
-                                        <p class="text-gray-700">Özel tarif ile hazırlanan ev yapımı poğaça</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Kahvaltı -->
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-semibold text-orange-500 mb-4 flex items-center">
-                            <i class="fas fa-mug-hot mr-2"></i> Kahvaltı Çeşitleri
-                        </h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="food-card bg-gradient-to-br from-orange-100 to-yellow-100 p-4 rounded-xl shadow-md hover:shadow-xl border-2 border-orange-200">
-                                <div class="flex items-start">
-                                    <i class="fas fa-bacon text-3xl text-orange-600 mr-3 mt-1"></i>
-                                    <div>
-                                        <h3 class="font-bold text-lg text-orange-800">Serpme Kahvaltı</h3>
-                                        <p class="text-gray-700">Zengin çeşitlerle hazırlanan serpme kahvaltı</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="food-card bg-gradient-to-br from-orange-100 to-yellow-100 p-4 rounded-xl shadow-md hover:shadow-xl border-2 border-orange-200">
-                                <div class="flex items-start">
-                                    <i class="fas fa-egg text-3xl text-orange-600 mr-3 mt-1"></i>
-                                    <div>
-                                        <h3 class="font-bold text-lg text-orange-800">Pastırmalı Yumurta</h3>
-                                        <p class="text-gray-700">Kayseri pastırması ile hazırlanan özel yumurta</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
+    </main>
 
-    <!-- Donate notu -->
-    <div class="fixed bottom-4 right-4 bg-gradient-to-r from-orange-100 to-yellow-100 p-4 rounded-lg shadow-lg max-w-xs text-right border-2 border-orange-200">
-        <p class="text-sm text-orange-800 italic">
-            <i class="fas fa-gift mr-1"></i>
-            <span class="font-semibold">Not:</span> Donate'ler Hamza ve Hümeyra Kandemir'e teslim edilebilir
-        </p>
-    </div>
-
-    
-    
+    <!-- Footer -->
+    <footer class="py-6 px-4 mt-12 border-t border-gray-800">
+        <div class="container mx-auto text-center text-gray-400">
+            <p>© 2024 Oyun Koleksiyonu. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
 </body>
 </html>
