@@ -19,11 +19,36 @@
             padding-right: 0.5rem;
             color: #f97316;
         }
+
+        /* Kaydırma çubuğu stilleri */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #fff3e0;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #f97316;
+            border-radius: 6px;
+            border: 3px solid #fff3e0;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ea580c;
+        }
+
+        /* Sabit header için stil */
+        .sticky-header {
+            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.95);
+        }
     </style>
 </head>
-<body class="bg-orange-50">
-    <!-- Header -->
-    <header class="py-8 bg-white shadow-sm">
+<body class="bg-orange-50 min-h-screen">
+    <!-- Sabit Header -->
+    <header class="sticky top-0 z-50 py-6 shadow-sm sticky-header">
         <div class="container mx-auto px-4">
             <h1 class="text-4xl font-bold text-center text-gray-800">Mert'in Hikayesi</h1>
             <p class="text-center text-gray-600 mt-2">Küçük bir çocuğun büyük hayalleri</p>
@@ -33,6 +58,11 @@
     <!-- Ana İçerik -->
     <main class="container mx-auto px-4 py-12 max-w-3xl">
         <article class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+            <!-- İlerleme Çubuğu -->
+            <div class="fixed top-0 left-0 w-full h-1 bg-orange-100">
+                <div id="progress-bar" class="h-full bg-orange-500 transition-all duration-300"></div>
+            </div>
+
             <!-- Hikaye Metni -->
             <div class="story-text text-gray-700 space-y-6">
                 <p class="first-letter">
@@ -81,11 +111,21 @@
         </article>
     </main>
 
-    <!-- Footer -->
-    <footer class="py-8 text-center text-gray-600">
+    <!-- Sabit Footer -->
+    <footer class="fixed bottom-0 w-full bg-white bg-opacity-95 py-4 shadow-lg backdrop-blur-sm">
         <div class="container mx-auto px-4">
-            <p>© 2024 Çocuk Hikayeleri</p>
+            <p class="text-center text-gray-600">© 2024 Çocuk Hikayeleri</p>
         </div>
     </footer>
+
+    <!-- İlerleme çubuğu için JavaScript -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + '%';
+        });
+    </script>
 </body>
 </html> 
